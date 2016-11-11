@@ -15,8 +15,8 @@
 	
 	List<RequestPetDTO> requestList = (List<RequestPetDTO>) requestService.requestlist2(requestid);
 	
-	String mesg = "success";
-	String mesg2 ="";
+	String mesg = "";
+	
 	if(requestList == null){
 		mesg = "fail";   
 	}else{   
