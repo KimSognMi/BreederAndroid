@@ -14,11 +14,12 @@
 	RequestService requestService = new RequestService();
 	
 	List<RequestPetDTO> requestList = (List<RequestPetDTO>) requestService.requestlist2(requestid);
-	
+	List<RequestPetDTO> answerList = (List<RequestPetDTO>) requestService.answer(requestid);
 	String mesg = "";
-	
+	String mesg2 = "";
 	if(requestList == null){
 		mesg = "fail";   
+		mesg2 = "fail"; 
 	}else{   
 		  
 		    for(RequestPetDTO dto5 : requestList){
@@ -40,8 +41,27 @@
 			
 			System.out.println(">>>>" + mesg);
 		
+			for(RequestPetDTO dto6 : answerList){
+			    System.out.println(">>>>" + dto6);
+			
+			      mesg2+=dto6.getAgree()+"/";
+			      mesg2+=dto6.getP_gender()+"/";
+			      mesg2+=dto6.getP_name()+"/";
+			      mesg2+=dto6.getP_photo()+"/";
+			      mesg2+=dto6.getP_type()+"/";
+			      mesg2+=dto6.getPhone()+"/";
+			      mesg2+=dto6.getR_content()+"/";
+			      mesg2+=dto6.getUserid()+"/";
+			      mesg2+=dto6.getP_age()+"/";
+			      mesg2+=dto6.getP_num()+"/";
+			      mesg2+=dto6.getR_num()+"/";
+			      
+			    }	
+				
+				System.out.println(">>>>" + mesg2);
 		
 	}
+	mesg = mesg+mesg2;
 	System.out.println(mesg);
 %>
 <%=mesg %>
