@@ -24,7 +24,7 @@
 		mesg = "fail";   
 	}else{   
 		MemberDTO dto3 =service.mypage(userid);
-		PetDTO dto4 = p_service.mypage(p_num);
+		
 		
 		
 		mesg=dto3.toString();
@@ -39,23 +39,29 @@
 		String addr2=dto3.getAddr2(); 
 		
 		
+		PetService service2 = new PetService();
+		    List<PetDTO> list = service2.list(muserid);
+		  
+		    for(PetDTO dto4 : list){
+		    System.out.println(">>>>" + dto4);
 		
-		mesg2=dto4.toString();
-		int pet_num = dto4.getP_num();
-		String puserid = dto4.getUserid();
-		String p_kkcnumber = dto4.getP_kkcnumber();
-		String p_name = dto4.getP_name();
-		int p_age = dto4.getP_age();
-		String p_gender = dto4.getP_gender();
-		String p_birth = dto4.getP_birth();
-		String p_type = dto4.getP_type();
-		String p_photo = dto4.getP_photo();
+		      mesg2+=dto4.getP_num()+"/";
+		      mesg2+=dto4.getUserid()+"/";
+		      mesg2+=dto4.getP_kkcnumber()+"/";
+		      mesg2+=dto4.getP_name()+"/";
+		      mesg2+=dto4.getP_age()+"/";
+		      mesg2+=dto4.getP_gender()+"/";
+		      mesg2+=dto4.getP_birth()+"/";
+		      mesg2+=dto4.getP_type()+"/";
+		      mesg2+=dto4.getP_photo()+"/";
+		      mesg2+=dto4.getP_feature()+"/";
+		      mesg2+=dto4.getMom_kkc()+"/";
+		      mesg2+=dto4.getPapa_kkc();
+		    }	
 			
+			System.out.println(">>>>" + mesg2);
 		
-		mesg2=p_num+"/"+puserid+"/"+p_kkcnumber+"/"+p_name+"/"+p_age+"/"+p_gender+"/"+p_birth+"/"+p_type+"/"+p_photo;
-		
-		
-		mesg=m_num+"/"+muserid+"/"+mpasswd+"/"+username+"/"+phone+"/"+post1+"/"+post2+"/"+addr1+"/"+addr2+","+mesg2;
+		mesg=m_num+"/"+muserid+"/"+mpasswd+"/"+username+"/"+phone+"/"+post1+"/"+post2+"/"+addr1+"/"+addr2+"&"+mesg2;
 	}
 	System.out.println(mesg);
 %>
