@@ -54,14 +54,14 @@
 			      mesg2+=dto6.getUserid()+"/";
 			      mesg2+=dto6.getP_age()+"/";
 			      mesg2+=dto6.getP_num()+"/";
-			      mesg2+=dto6.getR_num()+"/";
+			      mesg2+=dto6.getR_num();
 			      
 			    }	
 				
 				System.out.println(">>>>" + mesg2);
 		
 	}
-	mesg = mesg+mesg2;
+	mesg = mesg+"&"+mesg2;
 	System.out.println(mesg);
 %>
 <%=mesg %>
